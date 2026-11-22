@@ -101,28 +101,28 @@ df_trich_combined = bind_rows(df_trich_sp_final, df_trich_pap_final)
 
 ## Figures -----
 
-df_trich_sp_retro |> 
+df_spiralis_retro |> 
   ggplot(aes(perc_insert)) +
   geom_histogram() +
   labs(x = "Percent Insertion", y = "Frequency", 
        title = "Percent Insertion for Trichinella Spiralis")
 ggsave("../output/fig1_perc insertion spiralis_histogram.png") 
 
-df_trich_pap_retro |> 
+df_papuae_retro |> 
   ggplot(aes(perc_insert)) +
   geom_histogram() +
   labs(x = "Percent Insertion", y = "Frequency", 
        title = "Percent Insertion for Trichinella Papuae")
 ggsave("../output/fig2_perc insertion papuae_histogram.png") 
 
-df_trich_sp_retro |> 
+df_spiralis_retro |> 
   ggplot(aes(perc_insert)) +
   geom_freqpoly() +
   labs(x = "Percent Insertion", y = "Frequency", 
        title = "Percent Insertion for Trichinella Spiralis")
 ggsave("../output/fig3_perc insertion spiralis_poly.png") 
 
-df_trich_pap_retro |> 
+df_papuae_retro |> 
   ggplot(aes(perc_insert)) +
   geom_freqpoly() +
   labs(x = "Percent Insertion", y = "Frequency", 
