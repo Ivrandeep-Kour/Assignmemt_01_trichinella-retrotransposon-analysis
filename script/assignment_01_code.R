@@ -33,13 +33,7 @@ df_trich_pap
 
 ## Filtering the data -----
 
-ls_non_te = c("Simple_repeat", 
-              "Low_complexity", 
-              "Unknown", 
-              "simple_repeat", 
-              "Satellite", 
-              "rRNA", 
-              "snRNA")
+ls_non_te = c("Simple_repeat", "Low_complexity", "Unknown", "simple_repeat","Satellite","rRNA","snRNA")
 
 #BA#1 Suggestion: Combine identical ls_non_te_sp and ls_non_te_pap objects into one ls_non_te list, replace this new object in the right steps
 
@@ -141,16 +135,16 @@ ggsave("../output/fig5_perc insertion comparison_poly.png")
 
 ## Potential novel code -----
   
-summary(df_trich_sp_retro$perc_insert)
-summary(df_trich_pap_retro$perc_insert)
+summary(df_spiralis_retro$perc_insert)
+summary(df_papuae_retro$perc_insert)
 
 df_trich_combined_lm = 
   lm(df_trich_combined$perc_insert~df_trich_combined$species)
 summary(df_trich_combined_lm)
 
-t.test(df_trich_pap_retro$perc_insert, df_trich_sp_retro$perc_insert)
+t.test(df_papuae_retro$perc_insert, df_spiralis_retro$perc_insert)
 
-#BA#4 Suggestion: Based on the figures generated, the perc insertion data is not a normal distribution so it does not align with the underlying assumptions of linear model generation and t tests, a Wilcoxon rank-sum test could be a better fit here to see if percentage insetion values are higher in one species vs. the other
+#BA#4 Suggestion: Based on the figures generated, the perc insertion data is not a normal distribution so it does not align with the underlying assumptions of linear model generation and t tests, a Wilcoxon rank-sum test could be a better fit here to see if percentage insetion values are higher in one species vs. the other. Adding this additional statstical test also helps you confirm your conclusion since p > 0,05 in both tests. 
 
 wilcox.test(perc_insert ~ species, data = df_trich_combined)
 
