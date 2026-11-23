@@ -140,6 +140,7 @@ summary(df_papuae_retro$perc_insert)
 
 df_trich_combined_lm = 
   lm(df_trich_combined$perc_insert~df_trich_combined$species)
+plot(df_trich_combined_lm)
 summary(df_trich_combined_lm)
 
 t.test(df_papuae_retro$perc_insert, df_spiralis_retro$perc_insert)
